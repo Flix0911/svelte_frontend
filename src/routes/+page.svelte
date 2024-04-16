@@ -1,12 +1,13 @@
 <script>
     import Header from '../assests/Header.svelte'
     import Footer from '../assests/Footer.svelte'
+    import Navigation from '../assests/Navigation.svelte'
 </script>
 
 <Header />
+<Navigation />
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>This is the landing page. Will have training information here </h1>
 
 
 <Footer />
