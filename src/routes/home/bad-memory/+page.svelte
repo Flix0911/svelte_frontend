@@ -3,7 +3,7 @@
     import Header from '../../../assests/Header.svelte'
     import Footer from '../../../assests/Footer.svelte'
     import Navigation from '../../../assests/Navigation.svelte'
-    import { LoadBadMemory } from '../../../lib/api';
+    import { LoadBadMemory } from '$lib/api';
     import { onMount } from 'svelte';
 
 // "state"
@@ -30,7 +30,12 @@ $: badMemories = $BadMemoryStore
             <h2>Title:{memory.title}</h2>
             <h3>Date:{memory.date}</h3>
             <h3>Location:{memory.location}</h3>
-        {/each}
+            {#if memory.id}
+                <a href="/home/bad-memory/{memory.id}">View</a>
+            {:else}
+                <p>No ID available</p>
+            {/if}
+        {/each} 
     {:else}
         <p>Loading...</p>
     {/if}
