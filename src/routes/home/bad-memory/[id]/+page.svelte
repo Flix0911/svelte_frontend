@@ -11,7 +11,7 @@
 let badMemory = [];
 export let data;
 
-// mount all bad memories
+// mount the bad memory
 onMount(async function() {
     if($BadMemoryStore.length) {
         badMemory = $BadMemoryStore.find(badMemory => badMemory.id == data.id)
@@ -27,7 +27,6 @@ onMount(async function() {
     }
 })
 
-    
 </script>
 
 <Header />

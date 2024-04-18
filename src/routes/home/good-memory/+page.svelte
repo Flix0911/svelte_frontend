@@ -6,18 +6,18 @@
     import { GoodMemoryStore } from '../../../stores/good-memory-store';
     import { onMount } from 'svelte';
 
-// "state"
-let goodMemories = [];
+    // "state"
+    let goodMemories = [];
 
-// mount all good memories
-onMount(async () => {
-    const data = await LoadGoodMemory();
-    console.log('good-memory/page:', data)
-    GoodMemoryStore.set(data)
-})
+    // mount all good memories
+    onMount(async () => {
+        const data = await LoadGoodMemory();
+        console.log('good-memory/page:', data)
+        GoodMemoryStore.set(data)
+    })
 
-// subscribe
-$: goodMemories = $GoodMemoryStore
+    // subscribe
+    $: goodMemories = $GoodMemoryStore
 
 </script>
 
@@ -30,6 +30,12 @@ $: goodMemories = $GoodMemoryStore
             <h2>Title:{memory.title}</h2>
             <h3>Date:{memory.date}</h3>
             <h3>Location:{memory.location}</h3>
+            <!-- get my ID to link -->
+            {#if memory.id}
+                <a href="/home/good-memory/{memory.id}">View</a>
+            {:else}
+                <p>No ID available</p>
+            {/if}
         {/each}
     {:else}
         <p>Loading...</p>

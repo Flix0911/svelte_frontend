@@ -30,6 +30,7 @@ $: badMemories = $BadMemoryStore
             <h2>Title:{memory.title}</h2>
             <h3>Date:{memory.date}</h3>
             <h3>Location:{memory.location}</h3>
+            <!-- get my ID to link -->
             {#if memory.id}
                 <a href="/home/bad-memory/{memory.id}">View</a>
             {:else}

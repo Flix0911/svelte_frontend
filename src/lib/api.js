@@ -29,7 +29,7 @@ export async function LoadBadMemory() {
 // function for images
 export async function LoadImages() {
   const endpoint = `${apiUrl}images/`
-  console.log(endpoint)
+  console.log('api', endpoint)
   const response = await fetch(endpoint)
   if(!response.ok) {
     throw new Error('HTTP error')
