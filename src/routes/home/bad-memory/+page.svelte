@@ -5,19 +5,31 @@
     import Navigation from '../../../assests/Navigation.svelte'
     import { LoadBadMemory } from '$lib/api';
     import { onMount } from 'svelte';
+    const apiUrl = import.meta.env.VITE_API_URL;
 
-// "state"
-let badMemories = [];
+    // "state"
+    let badMemories = [];
 
-// mount all bad memories
-onMount(async () => {
-    const data = await LoadBadMemory();
-    console.log('bad-memory/page:', data)
-    BadMemoryStore.set(data)
-})
+    // mount all bad memories
+    onMount(async () => {
+        const data = await LoadBadMemory();
+        console.log('bad-memory/page:', data)
+        BadMemoryStore.set(data)
+    })
 
-// subscribe
-$: badMemories = $BadMemoryStore
+    // delete function
+    const handleDelete = (id) => {
+        const call = `${apiUrl}bad-memory/${id}`
+        console.log('delete call', call)
+        fetch (call, {method: 'DELETE'}).then(response => {
+            if(response.status == 204) {
+                BadMemoryStore.update(prev => prev.filter(memory => memory.id != id))
+            }
+        })
+    }
+
+    // subscribe
+    $: badMemories = $BadMemoryStore
 
 </script>
 
@@ -33,6 +45,7 @@ $: badMemories = $BadMemoryStore
             <!-- get my ID to link -->
             {#if memory.id}
                 <a href="/home/bad-memory/{memory.id}">View</a>
+                <button on:click={() => handleDelete(memory.id)} class="delete">Delete</button>
             {:else}
                 <p>No ID available</p>
             {/if}

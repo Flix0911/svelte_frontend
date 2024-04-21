@@ -17,6 +17,7 @@
     let date = '';
     let files;
 
+    // handleSubmit function
     let handleSubmit = () => {
         const call = `${apiUrl}good-memory/`
         console.log(call)

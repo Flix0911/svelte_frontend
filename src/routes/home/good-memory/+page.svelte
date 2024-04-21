@@ -5,6 +5,7 @@
     import Navigation from '../../../assests/Navigation.svelte'
     import { GoodMemoryStore } from '../../../stores/good-memory-store';
     import { onMount } from 'svelte';
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     // "state"
     let goodMemories = [];
@@ -15,6 +16,18 @@
         console.log('good-memory/page:', data)
         GoodMemoryStore.set(data)
     })
+
+    // delete function
+    const handleDelete = (id) => {
+        const call = `${apiUrl}good-memory/${id}`
+        console.log('delete call', call)
+        fetch (call, {method: 'DELETE'}).then(response => {
+            if(response.status == 204) {
+                GoodMemoryStore.update(prev => prev.filter(memory => memory.id != id))
+            }
+        })
+    }
+
 
     // subscribe
     $: goodMemories = $GoodMemoryStore
@@ -33,6 +46,7 @@
             <!-- get my ID to link -->
             {#if memory.id}
                 <a href="/home/good-memory/{memory.id}">View</a>
+                <button on:click={() => handleDelete(memory.id)} class="delete">Delete</button>
             {:else}
                 <p>No ID available</p>
             {/if}
