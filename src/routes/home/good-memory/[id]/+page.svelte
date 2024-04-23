@@ -16,7 +16,7 @@
             goodMemory = $GoodMemoryStore.find(goodMemory => goodMemory.id == data.id)
         } else {
             const call = `${apiUrl}good-memory/${data.id}/`
-            console.log(call)
+            console.log('goodmemory/id page', call)
             let response = await fetch(call)
             if (response.status == 200) {
                 goodMemory = await response.json()

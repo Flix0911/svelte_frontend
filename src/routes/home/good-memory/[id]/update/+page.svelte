@@ -7,7 +7,9 @@ import { onMount } from 'svelte';
 import { goto } from '$app/navigation';
 const apiUrl = import.meta.env.VITE_API_URL;
 
+
 export let data;
+export let id;
 // state for memory
 let goodMemory = [];
 // state for all fields
@@ -20,7 +22,6 @@ let season = '';
 let country = '';
 let date = '';
 let file;
-export let id;
 let showInvalidMessage = false;
 
 console.log('id on load', id)
@@ -30,7 +31,7 @@ const handleSubmit = () => {
     //     showInvalidMessage = true;
     //     return
     // }
-    const call = `${apiUrl}api/good-memory/${id}/`
+    const call = `${apiUrl}good-memory/${id}/`
     console.log('when submit', call)
     let data = new FormData()
     data.append('title', title)
@@ -67,6 +68,7 @@ onMount(async function() {
     } else {
         const call = `${apiUrl}good-memory/${data.id}/`
         console.log(call)
+        console.log('data-id', `${data.id}`)
         let response = await fetch(call)
         if (response.status == 200) {
             goodMemory = await response.json()
@@ -74,7 +76,7 @@ onMount(async function() {
             goodMemory = null
         }
     }
-    ({ title, date, weather, attendents, location, season, country, comment, file } = goodMemory)
+    ({ title, date, weather, attendents, location, season, country, comment, file, id } = goodMemory)
 })
 
 
