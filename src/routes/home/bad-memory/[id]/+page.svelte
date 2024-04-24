@@ -34,15 +34,20 @@ onMount(async function() {
 
 <div>
     {#if badMemory}
-            <h2>Title:{badMemory.title}</h2>
-            <h3>Date:{badMemory.date}</h3>
-            <h3>Weather:{badMemory.weather}</h3>
-            <h3>Attendents:{badMemory.attendents}</h3>
-            <h3>Location:{badMemory.location}</h3>
-            <h3>Season:{badMemory.season}</h3>
-            <h3>Country:{badMemory.country}</h3>
-            <h3>Comments:{badMemory.comment}</h3>
-            <img src={badMemory.image} alt="loaded"/>
+        <h2>Title:{badMemory.title}</h2>
+        <h3>Date:{badMemory.date}</h3>
+        <h3>Weather:{badMemory.weather}</h3>
+        <h3>Attendents:{badMemory.attendents}</h3>
+        <h3>Location:{badMemory.location}</h3>
+        <h3>Season:{badMemory.season}</h3>
+        <h3>Country:{badMemory.country}</h3>
+        <h3>Comments:{badMemory.comment}</h3>
+        <img src={badMemory.image} alt="loaded"/>
+        {#if badMemory.id}
+            <a href="/home/bad-memory/{badMemory.id}/update">Edit</a>
+        {:else}
+            <p>No ID available</p>
+        {/if}
     {:else}
         <p>Loading...</p>
     {/if}

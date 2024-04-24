@@ -24,7 +24,6 @@ let date = '';
 let file;
 let showInvalidMessage = false;
 
-console.log('id on load', id)
 
 const handleSubmit = () => {
     // if(!validFields()) {
@@ -58,7 +57,7 @@ const handleSubmit = () => {
     })
 
     // redirect
-    // goto('/home/good-memory/')
+    goto('/home/good-memory/')
 }
 
 // mount the memory
