@@ -1,6 +1,5 @@
 <script>
 	import { BadMemoryStore } from '../../../stores/bad-memory-store';
-    import Header from '../../../assests/Header.svelte'
     import Footer from '../../../assests/Footer.svelte'
     import Navigation from '../../../assests/Navigation.svelte'
     import { LoadBadMemory } from '$lib/api';
@@ -33,7 +32,6 @@
 
 </script>
 
-<Header />
 <Navigation />
 
 <div>

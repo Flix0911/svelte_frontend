@@ -6,7 +6,7 @@
     
 </script>
 
-<Header />
+
 <Navigation />
 
 <h1>This is the landing page. Will have training information here </h1>

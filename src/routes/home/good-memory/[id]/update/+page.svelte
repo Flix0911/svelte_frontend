@@ -1,7 +1,6 @@
 <script>
-import Header from '../../../../../assests/Header.svelte';
 import Navigation from '../../../../../assests/Navigation.svelte';
-import Footer from '../../../../../assests/Footer.svelte'
+import Footer from '../../../../../assests/Footer.svelte';
 import { GoodMemoryStore } from '../../../../../stores/good-memory-store';
 import { onMount } from 'svelte';
 import { goto } from '$app/navigation';
@@ -81,7 +80,6 @@ onMount(async function() {
 
 </script>
 
-<Header />
 <Navigation />
 
 <div>
@@ -102,6 +100,7 @@ onMount(async function() {
 
         <button class="edit-button" type="submit">Submit</button>
     </form>
+
 </div>
 
 <h2>This is routes/home/good-memory/:id/update/page</h2>

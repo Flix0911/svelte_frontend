@@ -1,6 +1,5 @@
 <script>
 	import { BadMemoryStore } from './../../../../stores/bad-memory-store.js';
-    import Header from '../../../../assests/Header.svelte'
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
     import { onMount } from 'svelte';
@@ -29,7 +28,6 @@ onMount(async function() {
 
 </script>
 
-<Header />
 <Navigation />
 
 <div>

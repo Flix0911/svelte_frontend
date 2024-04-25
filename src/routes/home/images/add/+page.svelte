@@ -1,5 +1,4 @@
 <script>
-    import Header from '../../../../assests/Header.svelte'
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
     import { ImagesStore } from '../../../../stores/images-store';
@@ -26,7 +25,6 @@
 
 </script>
 
-<Header />
 <Navigation />
 
 <div>

@@ -1,6 +1,5 @@
 <script>
 	import { ImagesStore } from './../../../stores/images-store.js';
-    import Header from '../../../assests/Header.svelte'
     import Footer from '../../../assests/Footer.svelte'
     import Navigation from '../../../assests/Navigation.svelte'
     import { onMount } from 'svelte';  
@@ -34,7 +33,6 @@
 
 </script>
 
-<Header />
 <Navigation />
 
 <div>

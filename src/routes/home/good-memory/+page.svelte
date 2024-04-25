@@ -1,6 +1,5 @@
 <script>
 	import { LoadGoodMemory } from '../../../lib/api';
-    import Header from '../../../assests/Header.svelte'
     import Footer from '../../../assests/Footer.svelte'
     import Navigation from '../../../assests/Navigation.svelte'
     import { GoodMemoryStore } from '../../../stores/good-memory-store';
@@ -33,8 +32,6 @@
     $: goodMemories = $GoodMemoryStore
 
 </script>
-
-<Header />
 <Navigation />
 
 <div>

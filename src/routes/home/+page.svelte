@@ -40,7 +40,6 @@ $: images = $ImagesStore
 
 </script>
 
-<Header />
 <Navigation />
 
 <h2>This is ./routers/home/page.svelte page</h2>

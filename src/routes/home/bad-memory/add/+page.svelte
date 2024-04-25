@@ -1,7 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { BadMemoryStore } from './../../../../stores/bad-memory-store.js';
-    import Header from '../../../../assests/Header.svelte'
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
     const apiUrl = import.meta.env.VITE_API_URL
@@ -42,7 +41,6 @@
     
 </script>
 
-<Header />
 <Navigation />
 
 <div>
