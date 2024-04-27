@@ -77,6 +77,7 @@ $: images = $ImagesStore
             <p>Loading images...</p>
             {/if}
         </div>
+        <hr>
     <div class="memories-wrapper">
         <!-- GOOD MEMORIES -->
         <div class="memories-container">
@@ -122,32 +123,35 @@ $: images = $ImagesStore
 <Footer />
 
 <style>
+    .page-container {
+        background-color: rgb(228, 220, 220);
+    }
     .slideshow {
-    height: 300px;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    padding: 40px;
-  }
+        height: 550px;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+    }
 
   .tech-slideshow {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
   }
 
   .tech-slideshow .image {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: opacity 1s ease; 
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: opacity 1s ease; 
   }
 
   .tech-slideshow .image.active {
