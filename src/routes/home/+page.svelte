@@ -2,15 +2,17 @@
 	import { ImagesStore } from './../../stores/images-store.js';
 	import { BadMemoryStore } from './../../stores/bad-memory-store.js';
 	import { GoodMemoryStore } from './../../stores/good-memory-store.js';
-    import Header from '../../assests/Header.svelte'
     import Footer from '../../assests/Footer.svelte'
     import Navigation from '../../assests/Navigation.svelte'
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import { LoadGoodMemory, LoadBadMemory, LoadImages } from '$lib/api'
 
 let goodMemories = [];
 let badMemories = [];
+// used for the images and the slideshow effect
 let images = [];
+let currentIndex = 0;
+let interval;
 
 onMount(async () => {
     // good memories
@@ -27,6 +29,9 @@ onMount(async () => {
     const imagesData = await LoadImages();
     console.log('Page images', imagesData)
     ImagesStore.set(imagesData)
+
+    // function to begin the slideshow
+    startSlideshow();
 })
 
 // subscribe to the goodmemory store
@@ -38,39 +43,175 @@ $: badMemories = $BadMemoryStore
 // subscribe to the images store
 $: images = $ImagesStore
 
+
+
+ const startSlideshow = () => {
+    interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+    }, 5000); 
+  };
+
+  const stopSlideshow = () => {
+    clearInterval(interval);
+  };
+
+  onDestroy(() => {
+    // Cleanup interval on component destroy
+    stopSlideshow();
+  });
+
 </script>
 
 <Navigation />
 
-<h2>This is ./routers/home/page.svelte page</h2>
+    <!-- IMAGES CONTAINER -->
+    <div class="page-container">
+        <div class="slideshow">
+            {#if images.length > 0}
+            <div class="tech-slideshow">
+                {#each images as image, index}
+                <div class="{`image mover-${index % 2 + 1}`} {index === currentIndex ? 'active' : ''}" style="background-image: url({image.image});"></div>
+                {/each}
+            </div>
+            {:else}
+            <p>Loading images...</p>
+            {/if}
+        </div>
+    <div class="memories-wrapper">
+        <!-- GOOD MEMORIES -->
+        <div class="memories-container">
+            <div class="header-container">
+                <h1 class="memory-header">Good Memories</h1>
+            </div>
+            <div class="good-memory-information-container">
+                {#if goodMemories.length > 0}
+                    {#each goodMemories as memory}
+                        <div class="memory-item">
+                            <h2>{memory.title}</h2>
+                            <a class="memory-link" href="/home/good-memory/{memory.id}/">View Details</a>
+                        </div>
+                    {/each}
+                {:else}
+                    <p>Loading...</p>
+                {/if}
+            </div>
+        </div>
 
-<div>
-    {#each images as image}
-        <img src={image.image} alt="Loaded-images"/>
-    {/each}
-
-    <!-- GOOD MEMORIES -->
-    <h3>Good Memories</h3>
-    {#if goodMemories.length > 0}
-        {#each goodMemories as memory}
-            <h2>{memory.title}</h2>
-            <a href="/home/good-memory/{memory.id}/">View</a>
-        {/each}
-    {:else}
-        <p>Loading...</p>
-    {/if}
-
-    <!-- BAD MEMORIES -->
-    <h3>Bad Memories</h3>
-    {#if badMemories.length > 0}
-        {#each badMemories as memory}
-            <h2>{memory.title}</h2>
-        {/each}
-    {:else}
-        <p>Loading...</p>
-    {/if}
-
+        <!-- BAD MEMORIES -->
+        <div class="memories-container">
+            <div class="header-container">
+                <h1 class="memory-header">Bad Memories</h1>
+            </div>
+            <div class="bad-memory-information-container">
+                {#if badMemories.length > 0}
+                    {#each badMemories as memory}
+                        <div class="memory-item">
+                            <h2>{memory.title}</h2>
+                            <a class="memory-link" href="/home/bad-memory/{memory.id}/">View</a>
+                        </div>
+                    {/each}
+                {:else}
+                    <p>Loading...</p>
+                {/if}
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <Footer />
+
+<style>
+    .slideshow {
+    height: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+  }
+
+  .tech-slideshow {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tech-slideshow .image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease; 
+  }
+
+  .tech-slideshow .image.active {
+    opacity: 1;
+  }
+  
+    @keyframes moveSlideshow {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+.memories-wrapper {
+    display: flex;
+    overflow-x: auto;
+    padding: 40px;
+}
+.memories-container {
+    flex-shrink: 0;
+    width: 50%;
+}
+
+.header-container {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.memory-header {
+    margin: 0;
+    font-size: 35px;
+    font-style: italic;
+    text-align: center;
+}
+
+.good-memory-information-container, .bad-memory-information-container {
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.memory-item {
+    margin-bottom: 15px;
+}
+
+.memory-item h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.memory-link {
+    color: #007bff; /* Adjust link color as needed */
+    text-decoration: none;
+}
+
+.memory-link:hover {
+    text-decoration: underline;
+}
+  </style>

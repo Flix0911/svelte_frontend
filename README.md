@@ -4,7 +4,7 @@
 - **App**: Memorial Moments
 - **Description**: Somewhat like Facebook and your own personal diary. A place for you to store events, pictures of said events, who attended, and much more
 
-- **Deployed**:
+- **Deployed**: https://662a6d545de2a60088015afa--transcendent-cranachan-a6693c.netlify.app
 
 ## Dependencies
 - TBD
