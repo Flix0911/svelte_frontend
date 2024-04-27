@@ -41,25 +41,84 @@
     
 </script>
 
-<Navigation />
 
-<div>
-    <form on:submit|preventDefault={handleSubmit}>
-        <input class="dummy" type="text" placeholder="title" bind:value={title}/>
-        <input class="dummy" type="text" placeholder="weather" bind:value={weather}/>
-        <input class="dummy" type="text" placeholder="comment" bind:value={comment}/>
-        <input class="dummy" type="text" placeholder="attendents" bind:value={attendents}/>
-        <input class="dummy" type="text" placeholder="location" bind:value={location}/>
-        <input class="dummy" type="text" placeholder="season" bind:value={season}/>
-        <input class="dummy" type="text" placeholder="country" bind:value={country}/>
-        <input class="dummy" type="text" placeholder="YYYY-MM-DD" bind:value={date}/>
-        <input class="dummy" type="file" bind:files/>
-        <button class="submit" type="submit">Submit</button>
-        
-    </form>
+<Navigation />
+<div class="add-memory-container">
+    <h2>Add Bad Memory</h2>
+    <div class="form-container">
+        <form on:submit|preventDefault={handleSubmit}>
+            <div class="input-group">
+                <input class="input-container" type="text" placeholder="title" bind:value={title}/>
+                <input class="input-container" type="text" placeholder="weather" bind:value={weather}/>
+                <input class="input-container" type="text" placeholder="attendents" bind:value={attendents}/>
+                <input class="input-container" type="text" placeholder="location" bind:value={location}/>
+                <input class="input-container" type="text" placeholder="season" bind:value={season}/>
+                <input class="input-container" type="text" placeholder="country" bind:value={country}/>
+                <input class="input-container" type="text" placeholder="YYYY-MM-DD" bind:value={date}/>
+                <input class="input-container" type="file" bind:files/>
+            </div>
+            <!-- need this textarea for the ability to write large comments -->
+            <textarea rows="4" placeholder="Comment" bind:value={comment} class="input-container"></textarea>
+            <button class="submit-button" type="submit">Submit</button>
+        </form>
+    </div>
 </div>
 
-<h2>This is routes/home/bad-memory/add/page</h2>
-
-
 <Footer />
+
+<style>
+    .add-memory-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .input-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .input-container {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box; 
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    textarea.input-container {
+        resize: vertical; 
+        min-height: 100px; 
+    }
+
+    .submit-button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .submit-button:hover {
+        background-color: #18bc46; 
+    }
+</style>

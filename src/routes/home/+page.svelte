@@ -14,6 +14,8 @@ let images = [];
 let currentIndex = 0;
 let interval;
 
+
+
 onMount(async () => {
     // good memories
     const goodMemoryData = await LoadGoodMemory();
@@ -82,14 +84,14 @@ $: images = $ImagesStore
         <!-- GOOD MEMORIES -->
         <div class="memories-container">
             <div class="header-container">
-                <h1 class="memory-header">Good Memories</h1>
+                <h1 class="memory-header">-Good Memories-</h1>
             </div>
             <div class="good-memory-information-container">
                 {#if goodMemories.length > 0}
                     {#each goodMemories as memory}
                         <div class="memory-item">
                             <h2>{memory.title}</h2>
-                            <a class="memory-link" href="/home/good-memory/{memory.id}/">View Details</a>
+                            <a class="memory-link" href="/home/good-memory/{memory.id}/">*View*</a>
                         </div>
                     {/each}
                 {:else}
@@ -101,14 +103,14 @@ $: images = $ImagesStore
         <!-- BAD MEMORIES -->
         <div class="memories-container">
             <div class="header-container">
-                <h1 class="memory-header">Bad Memories</h1>
+                <h1 class="memory-header">-Bad Memories-</h1>
             </div>
             <div class="bad-memory-information-container">
                 {#if badMemories.length > 0}
                     {#each badMemories as memory}
                         <div class="memory-item">
                             <h2>{memory.title}</h2>
-                            <a class="memory-link" href="/home/bad-memory/{memory.id}/">View</a>
+                            <a class="memory-link" href="/home/bad-memory/{memory.id}/">*View*</a>
                         </div>
                     {/each}
                 {:else}
@@ -124,25 +126,27 @@ $: images = $ImagesStore
 
 <style>
     .page-container {
-        background-color: rgb(228, 220, 220);
-    }
-    .slideshow {
-        height: 550px;
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        padding: 40px;
+        background-color: #f8f9fa; 
+        padding: 20px; 
+        font-family: 'Arial', sans-serif; 
     }
 
-  .tech-slideshow {
+    .slideshow {
+        height: 600px;
+        max-width: 800px;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-slideshow {
         height: 100%;
         width: 100%;
         position: relative;
         overflow: hidden;
-  }
+    }
 
-  .tech-slideshow .image {
+    .tech-slideshow .image {
         height: 100%;
         width: 100%;
         position: absolute;
@@ -151,71 +155,68 @@ $: images = $ImagesStore
         opacity: 0;
         background-size: cover;
         background-repeat: no-repeat;
-        transition: opacity 1s ease; 
-  }
-
-  .tech-slideshow .image.active {
-    opacity: 1;
-  }
-  
-    @keyframes moveSlideshow {
-      0% {
-        opacity: 0;
-      }
-      25% {
-        opacity: 1;
-      }
-      75% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
+        transition: opacity 1s ease;
     }
-.memories-wrapper {
-    display: flex;
-    overflow-x: auto;
-    padding: 40px;
-}
-.memories-container {
-    flex-shrink: 0;
-    width: 50%;
-}
 
-.header-container {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-}
+    .tech-slideshow .image.active {
+        opacity: 1;
+    }
 
-.memory-header {
-    margin: 0;
-    font-size: 35px;
-    font-style: italic;
-    text-align: center;
-}
+    .memories-wrapper {
+        display: flex;
+        overflow-x: auto; 
+        padding: 15px 40px; 
+    }
 
-.good-memory-information-container, .bad-memory-information-container {
-    margin-top: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    text-align: center;
-}
+    .memories-container {
+        flex-shrink: 0;
+        width: 50%; 
+        padding: 10px; 
+        margin: 0 10px; 
+        background-color: #fff; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        border-radius: 5px; 
+    }
 
-.memory-item {
-    margin-bottom: 15px;
-}
+    .header-container {
+        padding-bottom: 10px;
+        border-bottom: 5px solid #ccc;
+    }
 
-.memory-item h2 {
-    margin: 0;
-    font-size: 18px;
-}
+    .memory-header {
+        margin: 10px 0;
+        font-size: 35px;
+        color: #333; 
+        font-style: normal; 
+        text-align: center;
+    }
 
-.memory-link {
-    color: #007bff; /* Adjust link color as needed */
-    text-decoration: none;
-}
+    .good-memory-information-container, .bad-memory-information-container {
+        margin-top: 10px;
+        max-height: 300px;
+        overflow-y: auto;
+        text-align: center;
+    }
 
-.memory-link:hover {
-    text-decoration: underline;
-}
-  </style>
+    .memory-item {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .memory-item h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #0d0111; 
+    }
+
+    .memory-link {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .memory-link:hover {
+        color: #dc3545;
+        text-decoration: underline;
+    }
+</style>
