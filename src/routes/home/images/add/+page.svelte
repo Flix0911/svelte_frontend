@@ -11,6 +11,7 @@
 
     // submit function
     let handleSubmit = async () => {
+        console.log('files', files)
         const call =  `${apiUrl}images/`
         console.log(call)
         let data = new FormData()
@@ -23,6 +24,8 @@
     try {
         const response = await fetch(call, {method: 'POST', body: data});
         const responseData = await response.json();
+        console.log('responsedate:', responseData)
+        console.log('response:', response)
         // convert
         ImagesStore.update(prev => [...prev, responseData])
         goto('/home/images/');

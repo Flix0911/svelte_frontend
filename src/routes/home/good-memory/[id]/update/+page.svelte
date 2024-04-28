@@ -147,8 +147,8 @@ onMount(async function() {
     }
 
     textarea.edit-input {
-        resize: vertical; /* Allows vertical resizing */
-        min-height: 100px; /* Minimum height for the textarea */
+        resize: vertical; 
+        min-height: 100px; 
     }
 
     .edit-button {
@@ -162,6 +162,6 @@ onMount(async function() {
     }
 
     .edit-button:hover {
-        background-color: #0056b3; /* Darker shade on hover */
+        background-color: #0056b3; 
     }
 </style>
