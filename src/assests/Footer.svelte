@@ -1,12 +1,8 @@
-<script>
-    // return to this, unsure why static isn't loading
-</script>
-
 <div class="card">
     <div class="profile-sidebar">
         <!-- Use the imported profile image -->
-        <link rel="image" href="%sveltekit.assets%/profile.jpeg" />
-        <ul class='social-list'>
+        <img src="/profile.jpeg" alt="profile-view" class="profile-image">
+          <ul class='social-list'>
             <li class='social-item'><a class='social-link' href="https://www.linkedin.com/in/erickvalenciadev/">LinkedIn</a></li>
             <li class='social-item'><a class='social-link' href="https://github.com/Flix0911">GitHub</a></li>
         </ul>
@@ -24,6 +20,12 @@
     padding: 2em;
   }
 
+  .profile-image {
+    border-radius: 50%;
+    border: 2px solid gray;
+    max-width: 5%; 
+  
+  }
 
   .social-list {
     display: flex;

@@ -77,7 +77,7 @@ onMount(async function() {
             goodMemory = null
         }
     }
-    ({ title, date, weather, attendents, location, season, country, comment, id } = goodMemory)
+    ({ title, date, weather, attendents, location, season, country, comment, file, id } = goodMemory)
 })
 
 
