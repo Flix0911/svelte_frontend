@@ -1,4 +1,5 @@
 <script>
+	import TopOfPage from './../../../../assests/TopOfPage.svelte';
 	import { GoodMemoryStore } from './../../../../stores/good-memory-store.js';
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
@@ -58,6 +59,7 @@
     {/if}
 </div>
 
+<TopOfPage />
 <Footer />
 
 <style>

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="profile-sidebar">
         <!-- Use the imported profile image -->
-        <img src="/profile.jpeg" alt="profile-view" class="profile-image">
+        <img src="/Pippin.jpeg" alt="profile-view" class="profile-image">
           <ul class='social-list'>
             <li class='social-item'><a class='social-link' href="https://www.linkedin.com/in/erickvalenciadev/">LinkedIn</a></li>
             <li class='social-item'><a class='social-link' href="https://github.com/Flix0911">GitHub</a></li>

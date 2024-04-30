@@ -3,6 +3,7 @@
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
     import { onMount } from 'svelte';
+    import TopOfPage from '../../../../assests/TopOfPage.svelte';
     const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -59,6 +60,7 @@ onMount(async function() {
         <p>Loading...</p>
     {/if}
 </div>
+<TopOfPage />
 <Footer />
 
 <style>

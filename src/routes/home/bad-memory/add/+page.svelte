@@ -3,6 +3,7 @@
 	import { BadMemoryStore } from './../../../../stores/bad-memory-store.js';
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
+    import TopOfPage from '../../../../assests/TopOfPage.svelte';
     const apiUrl = import.meta.env.VITE_API_URL
 
     // state
@@ -64,6 +65,7 @@
     </div>
 </div>
 
+<TopOfPage />
 <Footer />
 
 <style>

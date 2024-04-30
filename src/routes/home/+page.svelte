@@ -6,6 +6,8 @@
     import Navigation from '../../assests/Navigation.svelte'
     import { onMount, onDestroy } from 'svelte';
     import { LoadGoodMemory, LoadBadMemory, LoadImages } from '$lib/api'
+    import TopOfPage from '../../assests/TopOfPage.svelte';
+
 
 let goodMemories = [];
 let badMemories = [];
@@ -121,7 +123,7 @@ $: images = $ImagesStore
     </div>
 </div>
 
-
+<TopOfPage />
 <Footer />
 
 <style>
@@ -132,7 +134,7 @@ $: images = $ImagesStore
     }
 
     .slideshow {
-        height: 600px;
+        height: 700px;
         max-width: 800px;
         margin: 20px auto;
         position: relative;

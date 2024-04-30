@@ -4,6 +4,7 @@ import Footer from "../../../../../assests/Footer.svelte";
 import { BadMemoryStore } from "../../../../../stores/bad-memory-store";
 import { onMount } from "svelte";
 import { goto } from "$app/navigation";
+import TopOfPage from "../../../../../assests/TopOfPage.svelte";
 const apiUrl = import.meta.env.VITE_API_URL
 
 export let data;
@@ -76,6 +77,7 @@ onMount(async function() {
 
 </script>
 
+<TopOfPage />
 <Navigation />
 
 <div class="form-container">

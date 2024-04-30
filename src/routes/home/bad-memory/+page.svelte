@@ -4,6 +4,7 @@
     import Navigation from '../../../assests/Navigation.svelte'
     import { LoadBadMemory } from '$lib/api';
     import { onMount } from 'svelte';
+    import TopOfPage from '../../../assests/TopOfPage.svelte';
     const apiUrl = import.meta.env.VITE_API_URL;
 
     // "state"
@@ -74,6 +75,7 @@
 
 </script>
 
+<TopOfPage />
 <Navigation />
 
 <div class="memory-page-container">

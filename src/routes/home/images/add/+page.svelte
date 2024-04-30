@@ -4,6 +4,8 @@
     import { ImagesStore } from '../../../../stores/images-store';
     import { goto } from '$app/navigation';
     const apiUrl = import.meta.env.VITE_API_URL;
+    import TopOfPage from '../../../../assests/TopOfPage.svelte';
+
 
     // state 
     let files = [];
@@ -67,7 +69,7 @@
     </form>
 </div>
 
-
+<TopOfPage />
 <Footer />
 
 <style>

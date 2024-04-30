@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
     import Footer from '../../../../assests/Footer.svelte'
     import Navigation from '../../../../assests/Navigation.svelte'
+    import TopOfPage from '../../../../assests/TopOfPage.svelte';
     import { GoodMemoryStore } from '../../../../stores/good-memory-store';
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -63,6 +64,7 @@
     </div>
 </div>
 
+<TopOfPage />
 <Footer />
 
 <style>

@@ -4,6 +4,7 @@
     import Navigation from '../../../assests/Navigation.svelte'
     import { onMount } from 'svelte';  
     import { LoadImages } from '../../../lib/api.js';
+    import TopOfPage from '../../../assests/TopOfPage.svelte';
     const apiUrl = import.meta.env.VITE_API_URL;
     
 
@@ -54,6 +55,7 @@
         <p>Loading...</p>
     {/if}
 </div>
+<TopOfPage />
 <Footer />
 
 <style>

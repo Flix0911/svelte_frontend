@@ -1,10 +1,12 @@
 <script>
+	import TopOfPage from './../../../assests/TopOfPage.svelte';
 	import { LoadGoodMemory } from '../../../lib/api';
     import Footer from '../../../assests/Footer.svelte'
     import Navigation from '../../../assests/Navigation.svelte'
     import { GoodMemoryStore } from '../../../stores/good-memory-store';
     import { onMount } from 'svelte';
     const apiUrl = import.meta.env.VITE_API_URL;
+
 
     // "state"
     let goodMemories = [];
@@ -120,6 +122,7 @@
 </div>
 
 
+<TopOfPage />
 <Footer />
 
 <style>
