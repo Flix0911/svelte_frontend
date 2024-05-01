@@ -24,8 +24,8 @@ let date = '';
 let file = [];
 let showInvalidMessage = false;
 
-console.log("data", data)
-console.log("id", id)
+// console.log("data", data)
+// console.log("id", id)
 
 const handleSubmit = () => {
     // if(!validFields()) {
@@ -33,7 +33,7 @@ const handleSubmit = () => {
     //     return
     // }
     const call = `${apiUrl}good-memory/${data}/`
-    console.log('when submit', call)
+    // console.log('when submit', call)
     let data = new FormData()
     data.append('title', title)
     data.append('weather', weather)
@@ -53,7 +53,7 @@ const handleSubmit = () => {
             let updatedGoodMemory = $GoodMemoryStore.slice()
             let index = updatedGoodMemory.findIndex(goodMemory => goodMemory.id == data.id)
             updatedGoodMemory[index] = data
-            console.log("updated good memory", updatedGoodMemory)
+            // console.log("updated good memory", updatedGoodMemory)
             return updatedGoodMemory
         })
     })
@@ -68,8 +68,8 @@ onMount(async function() {
         goodMemory = $GoodMemoryStore.find(goodMemory => goodMemory.id == data.id)
     } else {
         const call = `${apiUrl}good-memory/${data.id}/`
-        console.log(call)
-        console.log('data-id', `${data.id}`)
+        // console.log(call)
+        // console.log('data-id', `${data.id}`)
         let response = await fetch(call)
         if (response.status == 200) {
             goodMemory = await response.json()

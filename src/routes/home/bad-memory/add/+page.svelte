@@ -35,7 +35,7 @@
 
         fetch(call, {method: 'POST', body: data}).then(response => response.json()).then(data => {
             BadMemoryStore.update(prev => [...prev, data])
-            console.log('data in fetch', data)
+            // console.log('data in fetch', data)
             goto('/home/bad-memory/')
         })
     }

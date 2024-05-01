@@ -17,7 +17,7 @@ onMount(async function() {
         badMemory = $BadMemoryStore.find(badMemory => badMemory.id == data.id)
     } else {
         const call = `${apiUrl}/bad-memory/${data.id}/`
-        console.log(call)
+        // console.log(call)
         let response = await fetch(call)
         if (response.status == 200) {
             badMemory = await response.json()

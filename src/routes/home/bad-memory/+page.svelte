@@ -17,14 +17,14 @@
     // mount all bad memories
     onMount(async () => {
         const data = await LoadBadMemory();
-        console.log('bad-memory/page:', data)
+        // console.log('bad-memory/page:', data)
         BadMemoryStore.set(data)
     })
 
     // delete function
     const handleDelete = (id) => {
         const call = `${apiUrl}bad-memory/${id}`
-        console.log('delete call', call)
+        // console.log('delete call', call)
         fetch (call, {method: 'DELETE'}).then(response => {
             if(response.status == 204) {
                 BadMemoryStore.update(prev => prev.filter(memory => memory.id != id))

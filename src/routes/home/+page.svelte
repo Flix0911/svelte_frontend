@@ -21,17 +21,17 @@ let interval;
 onMount(async () => {
     // good memories
     const goodMemoryData = await LoadGoodMemory();
-    console.log('Page good memory data:', goodMemoryData)
+    // console.log('Page good memory data:', goodMemoryData)
     GoodMemoryStore.set(goodMemoryData)
 
     // bad memories
     const badMemoryData = await LoadBadMemory();
-    console.log('Page bad memory data:', badMemoryData)
+    // console.log('Page bad memory data:', badMemoryData)
     BadMemoryStore.set(badMemoryData)
 
     // images
     const imagesData = await LoadImages();
-    console.log('Page images', imagesData)
+    // console.log('Page images', imagesData)
     ImagesStore.set(imagesData)
 
     // function to begin the slideshow

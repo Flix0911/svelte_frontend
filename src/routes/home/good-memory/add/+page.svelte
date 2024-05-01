@@ -20,7 +20,7 @@
     // handleSubmit function
     let handleSubmit = () => {
         const call = `${apiUrl}good-memory/`
-        console.log(call)
+        // console.log(call)
         let data = new FormData()
         console.log(data)
         data.append('title', title)
@@ -35,7 +35,7 @@
 
     fetch(call, {method: 'POST', body: data}).then(response => response.json()).then(data => {
         GoodMemoryStore.update(prev => [...prev, data])
-        console.log("data in fetch", data)
+        // console.log("data in fetch", data)
         goto('/home/good-memory/')
     })
 }

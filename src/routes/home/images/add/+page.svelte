@@ -13,11 +13,11 @@
 
     // submit function
     let handleSubmit = async () => {
-        console.log('files', files)
+        // console.log('files', files)
         const call =  `${apiUrl}images/`
-        console.log(call)
+        // console.log(call)
         let data = new FormData()
-        console.log(data)
+        // console.log(data)
         // will allow multiple files
         files.forEach(file => {
             data.append('image', file)
@@ -26,8 +26,8 @@
     try {
         const response = await fetch(call, {method: 'POST', body: data});
         const responseData = await response.json();
-        console.log('responsedate:', responseData)
-        console.log('response:', response)
+        // console.log('responsedate:', responseData)
+        // console.log('response:', response)
         // convert
         ImagesStore.update(prev => [...prev, responseData])
         goto('/home/images/');

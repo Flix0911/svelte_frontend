@@ -18,14 +18,14 @@
     // mount all good memories
     onMount(async () => {
         const data = await LoadGoodMemory();
-        console.log('good-memory/page:', data)
+        // console.log('good-memory/page:', data)
         GoodMemoryStore.set(data)
     })
 
     // delete function
     const handleDelete = (id) => {
         const call = `${apiUrl}good-memory/${id}`
-        console.log('delete call', call)
+        // console.log('delete call', call)
         fetch (call, {method: 'DELETE'}).then(response => {
             if(response.status == 204) {
                 GoodMemoryStore.update(prev => prev.filter(memory => memory.id != id))

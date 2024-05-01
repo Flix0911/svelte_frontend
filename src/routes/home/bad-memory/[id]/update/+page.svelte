@@ -27,7 +27,7 @@ const handleSubmit = () => {
 
 
     const call = `${apiUrl}bad-memory/${id}/`
-    console.log('when submit', call)
+    // console.log('when submit', call)
     let data = new FormData()
     data.append('title', title)
     data.append('weather', weather)
@@ -47,7 +47,7 @@ const handleSubmit = () => {
             let updatedBadMemory = $BadMemoryStore.slice()
             let index = updatedBadMemory.findIndex(badMemory => badMemory.id == data.id)
             updatedBadMemory[index] = data
-            console.log("updated bad memory", updatedBadMemory)
+            // console.log("updated bad memory", updatedBadMemory)
             return updatedBadMemory
         })
     })
@@ -60,8 +60,8 @@ onMount(async function() {
         badMemory = $BadMemoryStore.find(badMemory => badMemory.id == data.id)
     } else {
         const call = `${apiUrl}bad-memory/${data.id}/`
-        console.log('update page', call)
-        console.log('data-id', `${data.id}`)
+        // console.log('update page', call)
+        // console.log('data-id', `${data.id}`)
         let response = await fetch(call)
         if (response.status == 200) {
             badMemory = await response.json()

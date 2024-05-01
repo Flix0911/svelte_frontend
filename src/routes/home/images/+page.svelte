@@ -14,14 +14,14 @@
     // mount all images
     onMount(async () => {
         const data = await LoadImages();
-        console.log('images/page', data)
+        // console.log('images/page', data)
         ImagesStore.set(data)
     })
 
     // delete function
     const handleDelete = (id) => {
         const call = `${apiUrl}images/${id}`
-        console.log('delete call', call)
+        // console.log('delete call', call)
         fetch(call, {method: 'DELETE'}).then(response => {
             if(response.status == 204) {
                 ImagesStore.update(prev => prev.filter(images => images.id != id))

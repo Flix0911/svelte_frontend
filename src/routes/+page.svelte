@@ -44,9 +44,6 @@
                 <img src="/Delete.jpeg" alt="delete-instructions" class="instruction-image">
             </div>
         </li>
-        <li>
-            <span>Once submitted, enjoy!</span>
-        </li>
     </ul>
 </div>
 

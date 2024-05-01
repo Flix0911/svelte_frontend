@@ -10,7 +10,7 @@ export async function LoadGoodMemory() {
   throw new Error(`HTTP error`)
  }
  const data = await response.json()
- console.log('Good memories:', data)
+//  console.log('Good memories:', data)
  return data
 }
 
@@ -22,20 +22,20 @@ export async function LoadBadMemory() {
     throw new Error('HTTP error')
   }
   const data = await response.json()
-  console.log('Bad Memories:', data)
+  // console.log('Bad Memories:', data)
   return data
 }
 
 // function for images
 export async function LoadImages() {
   const endpoint = `${apiUrl}images/`
-  console.log('api', endpoint)
+  // console.log('api', endpoint)
   const response = await fetch(endpoint)
   if(!response.ok) {
     throw new Error('HTTP error')
   }
   const data = await response.json()
-  console.log('Images:', data)
+  // console.log('Images:', data)
   return data
 }
 
