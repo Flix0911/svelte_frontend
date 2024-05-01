@@ -11,40 +11,45 @@
 
 <style>
     .card {
-    box-shadow: 0 0 20 px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #f8f9fa; 
-    text-align: center;
-    padding: 2em;
-  }
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 2em;
+    }
 
-  .profile-image {
-    border-radius: 50%;
-    border: 2px solid gray;
-    max-width: 5%; 
-  
-  }
+    .profile-image {
+        border-radius: 50%;
+        border: 2px solid gray;
+        max-width: 5%;
+        margin-bottom: 1em; 
+    }
 
-  .social-list {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 130px;
-    margin: 0 auto;
-  }
-  
-  .social-link {
-    color: gray;
-    opacity: 0.5;
-    font-size: 1.125rem;
-  }
-  
-  .social-link:hover,
-  .social-link:focus {
-    opacity: 1;
-  }
+    .social-list {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 130px;
+        margin: 0 auto;
+    }
+
+    .social-item {
+        margin-bottom: 0.5em; 
+    }
+
+    .social-link {
+        color: #2f6bab;
+        text-decoration: none;
+        font-size: 1.125rem;
+        transition: opacity 0.5s ease; 
+    }
+
+    .social-link:hover,
+    .social-link:focus {
+        color: #e30e23; 
+    }
 </style>

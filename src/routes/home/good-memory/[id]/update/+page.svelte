@@ -24,13 +24,15 @@ let date = '';
 let file = [];
 let showInvalidMessage = false;
 
+console.log("data", data)
+console.log("id", id)
 
 const handleSubmit = () => {
     // if(!validFields()) {
     //     showInvalidMessage = true;
     //     return
     // }
-    const call = `${apiUrl}good-memory/${id}/`
+    const call = `${apiUrl}good-memory/${data}/`
     console.log('when submit', call)
     let data = new FormData()
     data.append('title', title)
@@ -84,7 +86,6 @@ onMount(async function() {
 
 </script>
 
-<TopOfPage />
 <Navigation />
 
 <div class="form-container">
@@ -115,6 +116,7 @@ onMount(async function() {
     </form>
 </div>
 
+<TopOfPage />
 <Footer />
 
 <style>

@@ -9,6 +9,7 @@
     // state
     let goodMemory = [];
     export let data;
+    console.log('id',data)
 
     // mount the good memory
     onMount(async function() {

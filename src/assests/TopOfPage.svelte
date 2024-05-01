@@ -1,5 +1,5 @@
 <script>
-    export let showAtPixel = 2000;
+    export let showAtPixel = 1250;
   
     let scrollHeight = 0;
   

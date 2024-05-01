@@ -77,7 +77,7 @@ onMount(async function() {
 
 </script>
 
-<TopOfPage />
+
 <Navigation />
 
 <div class="form-container">
@@ -108,6 +108,7 @@ onMount(async function() {
     </form>
 </div>
 
+<TopOfPage />
 <Footer />
 
 <style>
