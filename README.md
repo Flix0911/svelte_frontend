@@ -6,18 +6,34 @@
 
 - **Deployed**: https://662a6d545de2a60088015afa--transcendent-cranachan-a6693c.netlify.app
 
-## Dependencies
-- TBD
-- TBD
-- TBD
-- TBD
 
 
-### Frontend: Svelte
+### Frontend: SvelteKit
+
+## Important note
+- Adapter Netlify
+
+### Backend: Django
+
+## Important Dependencies
+- Pillow (ultimately replaced)
+- Taggit
+- Boto3 (SDK for AMZN S3 bucket)
+- Botocore (AWS dpnd for CLI)
+- Django Storages (File storage)
+- Environ
+- Gunicorn
+
+#### Ensure no copies of names
+![Storages](https://i.imgur.com/j2Z57dB.jpg)
+
+### Database:
+- PostgreSQL ~ NeonTech
+
 
 ###
-- As a user, I would like to be able to create an account
-- As a user, I would like to be able to sign into my account
+- As a user, I would like to be able to create an account - incomplete
+- As a user, I would like to be able to sign into my account - incomplete
 - As a user, I wanted to be informed of what this site does
 - As a user, once I learn about the site, I want to go to the homepage
 - As a user, I want to be able to store memorable days
@@ -25,7 +41,6 @@
 - As a user, I want to be able to see both of those things on the home page
 - As a user, I want to be able to delete both of those things
 - As a user, I want to be able to update both of those things
-- TBD
 
 | Route Name | Endpoint | Method | Description |
 |------------|----------|--------|-------------|
